@@ -6,18 +6,22 @@ import { Link } from 'react-router-dom'
 class Posts extends Component {
   render() {
     return (
-      <Query query={POSTS_QUERY}>
-        {({ loading, data }) => {
-          if (loading) return 'Loading...'
-          const { posts } = data
-          return posts.map(post => (
-              <Link key={post.id} to={`/post/${post.id}`}>
-                <h1>{post.title}</h1>
-              </Link>
+      <ul>
+        <Query query={POSTS_QUERY}>
+          {({ loading, data }) => {
+            if (loading) return 'Loading...'
+            const { posts } = data
+            return posts.map(post => (
+              <li>
+                <Link key={post.id} to={`/post/${post.id}`}>
+                  {post.title}
+                </Link>
+              </li>
+              )
             )
-          )
-        }}
-      </Query>
+          }}
+        </Query>
+      </ul>
     )
   }
 }
