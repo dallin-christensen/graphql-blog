@@ -12,8 +12,8 @@ class Posts extends Component {
             if (loading) return 'Loading...'
             const { posts } = data
             return posts.map(post => (
-              <li>
-                <Link key={post.id} to={`/post/${post.id}`}>
+              <li key={post.id}>
+                <Link to={`/post/${post.id}`}>
                   {post.title}
                 </Link>
               </li>
