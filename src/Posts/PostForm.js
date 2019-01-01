@@ -5,9 +5,11 @@ class PostForm extends Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
     post: PropTypes.instanceOf(Object),
+    onSuccess: PropTypes.func,
   }
   static defaultProps = {
     post: {},
+    onSuccess: () => null,
   }
   state = {
     id: this.props.post.id || '',
@@ -20,7 +22,7 @@ class PostForm extends Component {
   }
   render() {
     const { title, body, id } = this.state
-    const { onSubmit } = this.props
+    const { onSubmit, onSuccess } = this.props
     return (
       <div>
         <input
@@ -47,7 +49,7 @@ class PostForm extends Component {
                 id,
               }
             })
-              .then(() => this.setState({ title: '', body: '' }))
+              .then(() => onSuccess())
               .catch((err) => console.warn(err))
           }}
         >
