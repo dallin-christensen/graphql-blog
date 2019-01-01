@@ -37,7 +37,8 @@ class PostForm extends Component {
           name='body'
           onChange={this.handleInput}
         />
-        <button 
+        <button
+          className='button'
           onClick={() => {
             onSubmit({
               variables: {

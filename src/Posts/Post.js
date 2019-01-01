@@ -18,7 +18,9 @@ class Post extends Component {
             <div>
               <section>
                 <h1>{post.title}</h1>
+                <p>{post.body}</p>
               </section>
+              <hr />
               <section>
                 <h1>Edit Post</h1>
                 <UpdatePost post={post} />
