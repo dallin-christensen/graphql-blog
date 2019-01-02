@@ -10,7 +10,7 @@ class NewPost extends Component {
         <h1>New Post</h1>
         <Mutation mutation={NEW_POST}>
           {
-            createPost => <PostForm onSubmit={createPost} />
+            createPost => <PostForm onSubmit={createPost} onSuccess={() => this.props.history.push('/')} />
           }
         </Mutation>
         
